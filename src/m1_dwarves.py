@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1.
+# DONE: 1.
 #
 #   In this module, we will be creating a way for you to be able to assign
 #   tasks to each of the seven dwarves for their day at work.
@@ -29,9 +29,19 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def response(name):
+    match name:
+        case "Happy":
+            return "Smile, it's a beautiful day!"
+        case "Doc":
+            return "Let me analyze the situation."
+        case "Grumpy":
+            return "Bah! Humbug."
+        case _:
+            return "Heigh-Hoooooo!!!"
 
 ###############################################################################
-# TODO: 2.
+# DONE: 2.
 #
 #   Now, we need a function to handle the assigning of tasks.
 #
@@ -52,9 +62,12 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def work_order(name):
+    task = input(f"Please give {name} a task: ")
+    return (name, task)
 
 ###############################################################################
-# TODO: 3.
+# DONE: 3.
 #
 #   Now, let's put things together.
 #
@@ -78,3 +91,20 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def main():
+    dwarf_names = [
+        "Happy", "Doc", "Grumpy", "Dopey", "Bashful", "Sleepy", "Sneezy"
+    ]
+    work_orders = []
+
+    for dwarf in dwarf_names:
+        task = work_order(dwarf)
+        response_text = response(dwarf)
+        work_orders.append(task)
+        print(response_text)
+
+    print("\nWork Orders:")
+    for order in work_orders:
+        print(f"{order[0]}: {order[1]}")
+if __name__ == "__main__":
+    main()

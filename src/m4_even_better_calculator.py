@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1.
+# DONE: 1.
 #   
 #   For this _TODO_, we are going to improve on our calculator from the Session
 #   7 Coding Exercises.
@@ -49,3 +49,52 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+# Define operator functions
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    return x / y
+
+def calculator():
+    while True:
+        num1 = input("Enter first number: ")
+        while not num1.isdigit() and ('.' not in num1 or not num1.replace('.', '').isdigit()):
+            print("Invalid Number")
+            num1 = input("Enter first number: ")
+
+        num2 = input("Enter second number: ")
+        while not num2.isdigit() and ('.' not in num2 or not num2.replace('.', '').isdigit()):
+            print("Invalid Number")
+            num2 = input("Enter second number: ")
+
+        operation = input("Choose an operation (+, -, *, /): ")
+
+        if operation == '+':
+            result = add(float(num1), float(num2))
+        elif operation == '-':
+            result = subtract(float(num1), float(num2))
+        elif operation == '*':
+            result = multiply(float(num1), float(num2))
+        elif operation == '/':
+            if float(num2) == 0:
+                print("Error! Division by zero.")
+                continue
+            result = divide(float(num1), float(num2))
+        else:
+            print("Invalid operation.")
+            continue
+
+        print("Result:", result)
+
+        choice = input("Do you want to perform another calculation? (yes/no): ")
+        if choice.lower() != 'yes':
+            break
+
+calculator()

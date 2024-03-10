@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1.
+# DONE: 1.
 #
 #   In this module, we are going to create various shape functions (similar to
 #   the one where you made a triangle in your coding exercises).
@@ -18,9 +18,13 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def rectangle(height, width):
+    for _ in range(height):
+        print("*" * width)
 
+rectangle(3, 4)
 ###############################################################################
-# TODO: 2.
+# DONE: 2.
 #
 #   For this _TODO_, write a function called inverted_triangle() that takes one
 #   parameter:
@@ -38,9 +42,14 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def inverted_triangle(size):
+    for i in range(size, 0, -1):
+        print("*" * i)
 
+
+inverted_triangle(4)
 ###############################################################################
-# TODO: 3.
+# DONE: 3.
 #
 #   For this _TODO_ write a function called box() that takes two parameters:
 #       - height    <-- int
@@ -61,9 +70,19 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def box(height, width):
+    if height < 3 or width < 3:
+        print("Invalid Box Size")
+    else:
+        for i in range(height):
+            if i == 0 or i == height - 1:
+                print("*" * width)
+            else:
+                print("*" + " " * (width - 2) + "*")
 
+box(4, 5)
 ###############################################################################
-# TODO: 4.
+# DONE: 4.
 #
 #   For this _TODO_, write a function called main() that calls each of your
 #   functions above. It should print these shapes in order:
@@ -76,3 +95,15 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def main():
+    print("Rectangle of height 3 and width 5:")
+    rectangle(3, 5)
+
+    print("\nInverted triangle of size 7:")
+    inverted_triangle(7)
+
+    print("\nBox of height 4 and width 6:")
+    box(4, 6)
+
+if __name__ == "__main__":
+    main()
